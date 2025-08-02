@@ -1,0 +1,23 @@
+mcuboot:
+  address: 0x0
+  end_address: 0x10000
+  region: flash_primary
+  size: 0x10000
+
+slot0:
+  address: 0x10000
+  end_address: 0x86000
+  region: flash_primary
+  size: 0x76000
+
+slot1:
+  address: 0x86000
+  end_address: 0xfc000
+  region: flash_primary
+  size: 0x76000
+
+scratch:
+  address: 0xfc000
+  end_address: 0xfe000
+  region: flash_primary
+  size: 0x2000

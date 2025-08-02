@@ -1,1 +1,47 @@
-sysbuild/mcuboot.overlay
+// Auto-generated app.overlay from partion.py
+// Device tree overlay for partition configuration
+
+/ {
+	chosen {
+		zephyr,code-partition = &slot0_partition;
+	};
+};
+
+&flash0 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		mcuboot_partition: partition@0 {
+			label = "mcuboot";
+			reg = <0x00000000 0x0001b800>;
+			read-only;
+		};
+
+		slot0_partition: partition@1b800 {
+			label = "image-0";
+			reg = <0x0001b800 0x00068a00>;
+			// Primary application slot
+		};
+
+		slot1_partition: partition@84200 {
+			label = "image-1";
+			reg = <0x00084200 0x00068a00>;
+			// Secondary application slot
+		};
+
+		scratch_partition: partition@ecc00 {
+			label = "image-scratch";
+			reg = <0x000ecc00 0x00000400>;
+			// MCUboot scratch area
+		};
+
+		// storage_partition: partition@ed000 {
+		// 	label = "storage";
+		// 	reg = <0x000ed000 0x00013000>;
+		// 	// Settings storage
+		// };
+
+	};
+};

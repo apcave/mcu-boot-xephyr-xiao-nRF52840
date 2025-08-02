@@ -22,28 +22,24 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 
-		/* MCUboot bootloader partition */
 		mcuboot_partition: partition@0 {
 			label = "mcuboot";
 			reg = <0x00000000 0x00010000>;
 		};
-		
-		/* Primary application slot */
+
 		slot0_partition: partition@10000 {
-			label = "image-0";
-			reg = <0x00010000 0x00066000>;
+			label = "slot0";
+			reg = <0x00010000 0x00076000>;
 		};
-		
-		/* Secondary application slot */
-		slot1_partition: partition@82000 {
-			label = "image-1";
-			reg = <0x00082000 0x00076000>;
+
+		slot1_partition: partition@86000 {
+			label = "slot1";
+			reg = <0x00086000 0x00076000>;
 		};
-		
-		/* Storage partition */
-		storage_partition: partition@f8000 {
-			label = "storage";
-			reg = <0x000f8000 0x00008000>;
+
+		scratch_partition: partition@fc000 {
+			label = "scratch";
+			reg = <0x000fc000 0x00002000>;
 		};
 	};
 };
