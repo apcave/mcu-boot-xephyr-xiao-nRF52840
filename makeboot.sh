@@ -1,2 +1,7 @@
 #!/bin/bash
-west build -p -b xiao_ble/nf52840/sense --no-sysbuild -s $PWD/../bootloader/mcuboot/boot/zephyr -- -DDTC_OVERLAY_FILE=$PWD/boards/xiao_ble.overlay -DCONF_FILE=$PWD/boot.conf
+# Sysbuild with overlay file - specify the overlay for main application
+#west build -p -b xiao_ble --sysbuild -s . -- -DDTC_OVERLAY_FILE=$PWD/app.overlay
+
+rm -r build
+#west -v build -b xiao_ble --sysbuild -- -DDTC_OVERLAY_FILE=$(realpath app.overlay)
+west -v build -b xiao_ble --sysbuild

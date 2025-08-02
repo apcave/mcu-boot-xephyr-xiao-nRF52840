@@ -25,13 +25,13 @@
 		/* MCUboot bootloader partition */
 		mcuboot_partition: partition@0 {
 			label = "mcuboot";
-			reg = <0x00000000 0x0000C000>;
+			reg = <0x00000000 0x00010000>;
 		};
 		
 		/* Primary application slot */
-		slot0_partition: partition@c000 {
+		slot0_partition: partition@10000 {
 			label = "image-0";
-			reg = <0x0000C000 0x00076000>;
+			reg = <0x00010000 0x00066000>;
 		};
 		
 		/* Secondary application slot */

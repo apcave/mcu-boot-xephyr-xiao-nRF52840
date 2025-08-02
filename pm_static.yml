@@ -1,0 +1,38 @@
+# Static partition manager configuration for MCUboot
+# This file defines the partition layout for the nRF52840 with MCUboot
+
+# MCUboot bootloader partition
+mcuboot:
+  address: 0x0
+  end_address: 0x10000
+  region: flash_primary
+  size: 0x10000
+
+# Primary application slot (slot 0)
+mcuboot_primary:
+  address: 0x10000
+  end_address: 0x76000
+  region: flash_primary
+  size: 0x66000
+
+# Secondary application slot (slot 1) 
+mcuboot_secondary:
+  address: 0x82000
+  end_address: 0xf8000
+  region: flash_primary
+  size: 0x76000
+
+# Storage/settings partition
+settings_storage:
+  address: 0xf8000
+  end_address: 0x100000
+  region: flash_primary
+  size: 0x8000
+
+# MCUboot scratch area (if needed for swap upgrades)
+# Uncomment if using swap-based upgrades instead of overwrite-only
+# mcuboot_scratch:
+#   address: 0x76000
+#   end_address: 0x82000
+#   region: flash_primary
+#   size: 0xc000
