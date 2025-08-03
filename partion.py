@@ -167,7 +167,7 @@ def main():
     # Define partitions: (name, size_in_bytes)
     # Single slot configuration - remove slot1
     mcuboot = 110 * 1024      # 100KB MCUboot bootloader
-    storage = 76 * 1024       # 32KB storage for settings
+    storage = 76 * 1024       # 76KB storage for settings
     scratch = 1 * 1024       # 1KB scratch area (optional, can be 0)
     
     # Single large application slot

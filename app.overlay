@@ -4,6 +4,8 @@
 / {
 	chosen {
 		zephyr,code-partition = &slot0_partition;
+		mcuboot-button0 = &button0;
+		mcuboot-led0 = &led0;
 	};
 };
 
