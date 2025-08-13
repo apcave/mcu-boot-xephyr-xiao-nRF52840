@@ -4,8 +4,12 @@
 / {
 	chosen {
 		zephyr,code-partition = &slot0_partition;
-		mcuboot-button0 = &button0;
+
 		mcuboot-led0 = &led0;
+	};
+
+	aliases {
+		mcuboot-button0 = &button0;	
 	};
 };
 
@@ -46,4 +50,15 @@
 		// };
 
 	};
+};
+
+/ {
+    buttons {
+        compatible = "gpio-keys";
+        button0: button_0 {
+            gpios = <&gpio0 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; // Use your actual pin
+            label = "MCUboot Button";
+            zephyr,code = <INPUT_KEY_0>;
+        };
+    };
 };

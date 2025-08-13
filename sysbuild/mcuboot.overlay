@@ -9,7 +9,12 @@
 		zephyr,console = &uart0;
 		zephyr,shell-uart = &uart0;
 		zephyr,bt-uart = &uart0;
+
 	};
+
+	aliases {
+		mcuboot-button0 = &button0;	
+	};	
 };
 
 /* Delete the existing partition layout */
@@ -74,4 +79,15 @@
 			low-power-enable;
 		};
 	};
+};
+
+/ {
+    buttons {
+        compatible = "gpio-keys";
+        button0: button_0 {
+            gpios = <&gpio0 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; // Use your actual pin
+            label = "MCUboot Button";
+            zephyr,code = <INPUT_KEY_0>;
+        };
+    };
 };
